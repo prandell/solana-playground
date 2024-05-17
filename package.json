@@ -1,0 +1,14 @@
+{
+  "name": "solana-playground",
+  "version": "1.0.0",
+  "description": "Playground for learning Solana",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Patrick Randell",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
