@@ -2,7 +2,7 @@ import 'dotenv/config'
 import { getExplorerLink } from '@solana-developers/helpers'
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js'
 import { getOrCreateAssociatedTokenAccount, transfer } from '@solana/spl-token'
-import { loadKeypairFromEnv, loadPublicKeyFromEnv } from '../utils/utils'
+import { loadKeypairFromEnv, loadPublicKeyFromEnv } from '../../utils/utils'
 const connection = new Connection(clusterApiUrl('devnet'))
 
 const sender = loadKeypairFromEnv('SECRET_KEY')

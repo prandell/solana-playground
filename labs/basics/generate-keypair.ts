@@ -1,4 +1,4 @@
-import { loadKeypairFromEnv } from '../utils/utils'
+import { loadKeypairFromEnv } from '../../utils/utils'
 
 const keypair = loadKeypairFromEnv('SECRET_KEY')
 

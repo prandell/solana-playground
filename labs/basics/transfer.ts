@@ -7,7 +7,7 @@ import {
   LAMPORTS_PER_SOL
 } from '@solana/web3.js'
 import 'dotenv/config'
-import { loadKeypairFromEnv, resolvePublicAdress } from '../utils/utils'
+import { loadKeypairFromEnv, resolvePublicAdress } from '../../utils/utils'
 import { airdropIfRequired } from '@solana-developers/helpers'
 
 const suppliedToPubkey = process.argv[2] || null

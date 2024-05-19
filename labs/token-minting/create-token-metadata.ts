@@ -9,7 +9,7 @@ import {
   sendAndConfirmTransaction
 } from '@solana/web3.js'
 import { createCreateMetadataAccountV3Instruction } from '@metaplex-foundation/mpl-token-metadata'
-import { loadKeypairFromEnv, loadPublicKeyFromEnv } from '../utils/utils'
+import { loadKeypairFromEnv, loadPublicKeyFromEnv } from '../../utils/utils'
 
 const user = loadKeypairFromEnv('SECRET_KEY')
 

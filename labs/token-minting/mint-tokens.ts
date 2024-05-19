@@ -9,7 +9,7 @@ import {
   getEnvOrThrow,
   loadKeypairFromEnv,
   loadPublicKeyFromEnv
-} from '../utils/utils'
+} from '../../utils/utils'
 const connection = new Connection(clusterApiUrl('devnet'))
 
 // Our token has two decimal places

@@ -8,7 +8,7 @@ import {
   getPublicKeyFromSolDomain,
   isValidSolAddress,
   resolvePublicAdress
-} from '../utils/utils'
+} from '../../utils/utils'
 
 let suppliedPublicKey = process.argv[2] || null
 if (!suppliedPublicKey) {

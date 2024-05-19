@@ -3,6 +3,7 @@ import { getKeypairFromEnvironment } from '@solana-developers/helpers'
 import { Connection, Keypair, PublicKey } from '@solana/web3.js'
 import dotenv from 'dotenv'
 import path from 'path'
+dotenv.config({ path: path.join(__dirname, '..', '.env') })
 
 export function isValidSolAddress(address: string): boolean {
   try {
@@ -21,12 +22,10 @@ export function generateAndLogKeypair() {
 }
 
 export function loadKeypairFromEnv(envVar: string): Keypair {
-  dotenv.config({ path: path.join(__dirname, '..', '.env') })
   return getKeypairFromEnvironment(envVar)
 }
 
 export function loadPublicKeyFromEnv(envVar: string): PublicKey {
-  dotenv.config({ path: path.join(__dirname, '..', '.env') })
   const loaded = process?.env?.[envVar]
   if (!loaded) {
     throw new Error('Supplied ENV variable could not be loaded')
@@ -36,7 +35,6 @@ export function loadPublicKeyFromEnv(envVar: string): PublicKey {
 }
 
 export function getEnvOrThrow(envVar: string): string {
-  dotenv.config({ path: path.join(__dirname, '..', '.env') })
   const loaded = process?.env?.[envVar]
   if (!loaded) {
     throw new Error('Supplied ENV variable could not be loaded')
