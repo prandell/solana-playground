@@ -1,3 +1,15 @@
+#Anchor
+
+.anchor
+.DS_Store
+target
+**/*.rs.bk
+test-ledger
+.yarn
+
+
+
+
 # Logs
 logs
 *.log
