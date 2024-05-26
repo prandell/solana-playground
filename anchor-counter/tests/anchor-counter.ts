@@ -26,12 +26,27 @@ describe('anchor-counter', () => {
   });
 
   it('Incremented the count', async () => {
+    const amount_prior = (
+      await program.account.counter.fetch(counter.publicKey)
+    ).count.toNumber();
     const tx = await program.methods
       .increment()
       .accounts({ counter: counter.publicKey, user: provider.wallet.publicKey })
       .rpc();
+    const account = await program.account.counter.fetch(counter.publicKey);
+    expect(account.count.toNumber()).to.equal(amount_prior + 1);
+  });
+
+  it('Decrement the count', async () => {
+    const amount_prior = (
+      await program.account.counter.fetch(counter.publicKey)
+    ).count.toNumber();
+    const tx = await program.methods
+      .decrement()
+      .accounts({ counter: counter.publicKey, user: provider.wallet.publicKey })
+      .rpc();
 
     const account = await program.account.counter.fetch(counter.publicKey);
-    expect(account.count.toNumber()).to.equal(1);
+    expect(account.count.toNumber()).to.equal(amount_prior - 1);
   });
 });
