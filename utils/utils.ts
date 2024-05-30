@@ -32,6 +32,11 @@ export function convertBase58ToJson(
   }
 }
 
+export function convertJSONtoBase58(json: number[]): string {
+  const privkey = new Uint8Array(json);
+  return base58.encode(privkey);
+}
+
 export function generateAndLogKeypair() {
   const keypair = Keypair.generate();
   console.log(`The public key is: `, keypair.publicKey.toBase58());
