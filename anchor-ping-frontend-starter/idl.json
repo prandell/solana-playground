@@ -14,11 +14,13 @@
       "accounts": [
         {
           "name": "counter",
-          "isMut": true
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "user",
-          "isSigner": true
+          "isSigner": true,
+          "isMut": false
         }
       ],
       "args": []
@@ -28,11 +30,13 @@
       "accounts": [
         {
           "name": "counter",
-          "isMut": true
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "user",
-          "isSigner": true
+          "isSigner": true,
+          "isMut": false
         }
       ],
       "args": []
@@ -51,8 +55,10 @@
           "isSigner": true
         },
         {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111",
+          "isSigner": false,
+          "isMut": false
         }
       ],
       "args": []

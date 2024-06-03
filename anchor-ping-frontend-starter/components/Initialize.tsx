@@ -34,7 +34,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
       anchor.setProvider(provider)
     }
 
-    const program = new anchor.Program(idl as anchor.Idl, PROGRAM_ID)
+    const program = new anchor.Program(idl as anchor.Idl, PROGRAM_ID, provider)
     setProgram(program)
   }, [])
 
@@ -45,7 +45,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
       .accounts({
         counter: newAccount.publicKey,
         user: wallet.publicKey,
-        systemAccount: anchor.web3.SystemProgram.programId,
+        systemProgram: anchor.web3.SystemProgram.programId,
       })
       .signers([newAccount])
       .rpc()

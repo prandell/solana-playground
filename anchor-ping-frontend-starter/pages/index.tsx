@@ -1,16 +1,17 @@
-import { NextPage } from "next"
-import styles from "../styles/Home.module.css"
-import { AppBar } from "../components/AppBar"
-import { useWallet } from "@solana/wallet-adapter-react"
-import { Increment } from "../components/Increment"
-import { Initialize } from "../components/Initialize"
-import { useState } from "react"
-import Head from "next/head"
-import { Spacer, VStack, Text, Button, Box, Stack } from "@chakra-ui/react"
+import { NextPage } from 'next'
+import styles from '../styles/Home.module.css'
+import { AppBar } from '../components/AppBar'
+import { useWallet } from '@solana/wallet-adapter-react'
+import { Increment } from '../components/Increment'
+import { Initialize } from '../components/Initialize'
+import { useState } from 'react'
+import Head from 'next/head'
+import { Spacer, VStack, Text, Button, Box, Stack } from '@chakra-ui/react'
+import { PublicKey } from '@solana/web3.js'
 
 const Home: NextPage = (props) => {
-  const [counter, setCounter] = useState("")
-  const [transactionUrl, setTransactionUrl] = useState("")
+  const [counter, setCounter] = useState<PublicKey>()
+  const [transactionUrl, setTransactionUrl] = useState('')
   const wallet = useWallet()
 
   return (
@@ -18,8 +19,15 @@ const Home: NextPage = (props) => {
       <Head>
         <title>Anchor Frontend Example</title>
       </Head>
-      <Box h="calc(100vh)" w="full">
-        <Stack w="full" h="calc(100vh)" justify="center">
+      <Box
+        h="calc(100vh)"
+        w="full"
+      >
+        <Stack
+          w="full"
+          h="calc(100vh)"
+          justify="center"
+        >
           <AppBar />
           <div className={styles.AppBody}>
             {wallet.connected ? (
@@ -41,7 +49,12 @@ const Home: NextPage = (props) => {
             )}
             <Spacer />
             {transactionUrl && (
-              <Button margin={8}>View most recent transaction</Button>
+              <Button
+                onClick={() => window.open(transactionUrl, '_blank')}
+                margin={8}
+              >
+                View most recent transaction
+              </Button>
             )}
           </div>
         </Stack>
